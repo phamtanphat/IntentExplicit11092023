@@ -1,6 +1,7 @@
 package com.example.intentexplicit11092023
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -21,7 +22,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initView()
+        event()
         makeImageRandom(imgRandom, arrAnimals)
+    }
+
+    private fun event() {
+        imgUserSelect.setOnClickListener {
+            val intent = Intent(this@MainActivity, ListAnimalActivity::class.java)
+            intent.putExtra("text", "Hello")
+            intent.putExtra("number", 10)
+            startActivity(intent)
+        }
     }
 
     private fun makeImageRandom(imageView: ImageView, arrayName: Array<String>) {
