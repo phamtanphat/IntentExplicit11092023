@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import java.io.Serializable
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, ListAnimalActivity::class.java)
             intent.putExtra("text", "Hello")
             intent.putExtra("number", 10)
+            intent.putExtra("array_string", arrayOf("Ti"))
+            intent.putExtra("array_list_string", arrayListOf("Teo", "Ti"))
+            intent.putExtra("object",  Person("abc"))
+            intent.putExtra("list_object", arrayListOf(Person("teo"), Person("ti")))
             startActivity(intent)
         }
     }
