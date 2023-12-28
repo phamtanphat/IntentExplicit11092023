@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text_view_time"
+        android:layout_margin="10dp"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#f20"
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/imgRandom"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bo" />
+
+    <TextView
+        android:id="@+id/textviewTieude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgRandom"
+        android:layout_marginTop="30dp"
+        android:background="#FFEB3B"
+        android:gravity="center"
+        android:text="Chọn hình bên dưới"
+        android:textAllCaps="true"
+        android:textColor="#f20"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:id="@+id/imgPick"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/textviewTieude"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/nophoto" />
+</RelativeLayout>
