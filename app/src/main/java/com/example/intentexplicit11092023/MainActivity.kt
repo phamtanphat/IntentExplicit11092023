@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("array_list_string", arrayListOf("Teo", "Ti"))
             intent.putExtra("object",  Person("abc"))
             intent.putParcelableArrayListExtra("list_object", arrayListOf(Person("teo"), Person("ti")))
+
+            val bundle = Bundle()
+            bundle.putString("text_bundle", "Data from Bundle")
+            intent.putExtra("bundle", bundle)
             startActivity(intent)
         }
     }
