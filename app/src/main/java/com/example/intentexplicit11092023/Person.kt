@@ -3,7 +3,7 @@ package com.example.intentexplicit11092023;
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Person (var name: String): Parcelable {
+class Person (var name: String): Parcelable {
     constructor(parcel: Parcel) : this(parcel.readString() ?: "")
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

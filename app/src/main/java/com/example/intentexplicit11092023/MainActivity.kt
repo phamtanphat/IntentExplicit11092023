@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("array_string", arrayOf("Ti"))
             intent.putExtra("array_list_string", arrayListOf("Teo", "Ti"))
             intent.putExtra("object",  Person("abc"))
-            intent.putExtra("list_object", arrayListOf(Person("teo"), Person("ti")))
+            intent.putParcelableArrayListExtra("list_object", arrayListOf(Person("teo"), Person("ti")))
             startActivity(intent)
         }
     }
