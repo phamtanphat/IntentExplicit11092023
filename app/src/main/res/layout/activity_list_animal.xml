@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:stretchColumns="*"
     tools:context=".ListAnimalActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow>
+        <TextView
+            android:textSize="30sp"
+            android:text="View 1"
+            android:background="#f20" />
+
+        <TextView
+            android:textSize="30sp"
+            android:text="View 2"
+            android:background="#B3B3B3" />
+
+        <TextView
+            android:textSize="30sp"
+            android:text="View 3"
+            android:background="#21CC5A" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:textSize="30sp"
+            android:text="View 4"
+            android:background="#03A9F4" />
+
+        <TextView
+            android:textSize="30sp"
+            android:text="View 5"
+            android:background="#FF5722" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:textSize="30sp"
+            android:text="View 6"
+            android:background="#CDDC39" />
+
+        <TextView
+            android:textSize="30sp"
+            android:text="View 7"
+            android:background="#8BC34A" />
+
+        <TextView
+            android:textSize="30sp"
+            android:text="View 8"
+            android:background="#9C27B0" />
+    </TableRow>
+</TableLayout>

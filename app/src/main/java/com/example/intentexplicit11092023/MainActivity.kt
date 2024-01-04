@@ -44,13 +44,8 @@ class MainActivity : AppCompatActivity() {
     private fun makeImageRandom(imageView: ImageView, arrayName: Array<String>) {
         val index = Random.nextInt(arrayName.size)
         val nameDrawable = arrayName[index]
-        val imageResource = randomImageResource(nameDrawable)
+        val imageResource = DrawableUtil.randomImageResource(nameDrawable, this)
         imageView.setImageResource(imageResource)
-    }
-
-    @SuppressLint("DiscouragedApi")
-    private fun randomImageResource(nameImageResource: String): Int {
-        return resources.getIdentifier(nameImageResource, "drawable", packageName)
     }
 
     private fun initView() {
