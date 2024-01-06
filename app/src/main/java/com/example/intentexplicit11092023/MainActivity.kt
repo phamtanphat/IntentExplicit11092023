@@ -1,14 +1,11 @@
 package com.example.intentexplicit11092023
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import java.io.Serializable
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     private fun makeImageRandom(imageView: ImageView, arrayName: Array<String>) {
         val index = Random.nextInt(arrayName.size)
         val nameDrawable = arrayName[index]
-        val imageResource = DrawableUtil.randomImageResource(nameDrawable, this)
+        val imageResource = DrawableUtil.getImageResource(nameDrawable, this)
         imageView.setImageResource(imageResource)
     }
 

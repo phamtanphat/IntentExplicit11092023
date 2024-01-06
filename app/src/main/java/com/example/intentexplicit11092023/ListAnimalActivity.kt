@@ -2,7 +2,6 @@ package com.example.intentexplicit11092023
 
 import android.os.Build
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TableLayout
@@ -22,17 +21,20 @@ class ListAnimalActivity : AppCompatActivity() {
 
         if (intent != null) {
             val arrAnimals = intent.getStringArrayExtra("array_animals")
-
+            if (arrAnimals.isNullOrEmpty()) return
             val colum = 3
             val row = 6
-
+            var index = -1
+            var drawable = -1
             val imageSize = calculateImageSizeFromWidthScreen(colum)
 
             for (indexRow in 0 until row) {
                 val tableRow = TableRow(this)
                 for (indexColumn in 0 until colum) {
+                    index = indexRow * colum + indexColumn
+                    drawable = DrawableUtil.getImageResource(arrAnimals[index], this)
                     val imageView = ImageView(this).apply {
-                        setImageResource(R.drawable.bo)
+                        setImageResource(drawable)
                         layoutParams = LayoutParams(imageSize, imageSize)
                     }
                     tableRow.addView(imageView)

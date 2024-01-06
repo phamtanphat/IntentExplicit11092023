@@ -7,7 +7,7 @@ class DrawableUtil {
 
     companion object {
         @SuppressLint("DiscouragedApi")
-        fun randomImageResource(nameImageResource: String, context: Context): Int {
+        fun getImageResource(nameImageResource: String, context: Context): Int {
             return context.resources.getIdentifier(
                 nameImageResource,
                 "drawable",
