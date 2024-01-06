@@ -1,18 +1,44 @@
 package com.example.intentexplicit11092023
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
+import android.widget.ImageView
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TableRow.LayoutParams
+import androidx.appcompat.app.AppCompatActivity
 
 class ListAnimalActivity : AppCompatActivity() {
+
+    private lateinit var tableLayout: TableLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_animal)
 
+        tableLayout = findViewById(R.id.table_layout_list_animal)
+
         if (intent != null) {
             val arrAnimals = intent.getStringArrayExtra("array_animals")
-            Log.d("pphat", arrAnimals?.size.toString())
+
+            val colum = 3
+            val row = 6
+
+            for (indexRow in 0 until row) {
+                val tableRow = TableRow(this)
+                for (indexColumn in 0 until colum) {
+                    val imageView = ImageView(this).apply {
+                        setImageResource(R.drawable.bo)
+                        layoutParams = LayoutParams(
+                            LayoutParams.WRAP_CONTENT,
+                            LayoutParams.WRAP_CONTENT,
+                        )
+                    }
+                    tableRow.addView(imageView)
+                }
+                tableLayout.addView(tableRow)
+            }
         }
     }
 

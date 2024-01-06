@@ -1,89 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:stretchColumns="*"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ListAnimalActivity">
 
-    <TableRow>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="12"
-            android:textSize="20sp"
-            android:text="View 1"
-            android:background="#f20" />
-    </TableRow>
-
-    <TableRow>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="6"
-            android:textSize="20sp"
-            android:text="View 2"
-            android:background="#B3B3B3" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="6"
-            android:textSize="20sp"
-            android:text="View 3"
-            android:background="#21CC5A" />
-    </TableRow>
-
-    <TableRow>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="4"
-            android:textSize="20sp"
-            android:text="View 4"
-            android:background="#03A9F4" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="4"
-            android:textSize="20sp"
-            android:text="View 5"
-            android:background="#FF5722" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="4"
-            android:textSize="20sp"
-            android:text="View 6"
-            android:background="#CDDC39" />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="3"
-            android:textSize="20sp"
-            android:text="View 7"
-            android:background="#AE9155" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="3"
-            android:textSize="20sp"
-            android:text="View 8"
-            android:background="#6B4E45" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="3"
-            android:textSize="20sp"
-            android:text="View 9"
-            android:background="#241C6D" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_span="3"
-            android:textSize="20sp"
-            android:text="View 10"
-            android:background="#00BCD4" />
-    </TableRow>
-</TableLayout>
+    <TableLayout
+        android:stretchColumns="*"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/table_layout_list_animal" />
+</ScrollView>
