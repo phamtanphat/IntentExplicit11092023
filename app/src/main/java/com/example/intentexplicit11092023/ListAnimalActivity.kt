@@ -10,6 +10,7 @@ import android.widget.TableRow
 import android.widget.TableRow.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 
+
 class ListAnimalActivity : AppCompatActivity() {
 
     private lateinit var tableLayout: TableLayout
@@ -25,21 +26,25 @@ class ListAnimalActivity : AppCompatActivity() {
             val colum = 3
             val row = 6
 
+            val imageSize = calculateImageSizeFromWidthScreen(colum)
+
             for (indexRow in 0 until row) {
                 val tableRow = TableRow(this)
                 for (indexColumn in 0 until colum) {
                     val imageView = ImageView(this).apply {
                         setImageResource(R.drawable.bo)
-                        layoutParams = LayoutParams(
-                            LayoutParams.WRAP_CONTENT,
-                            LayoutParams.WRAP_CONTENT,
-                        )
+                        layoutParams = LayoutParams(imageSize, imageSize)
                     }
                     tableRow.addView(imageView)
                 }
                 tableLayout.addView(tableRow)
             }
         }
+    }
+
+    private fun calculateImageSizeFromWidthScreen(numberColum: Int): Int {
+        val displayMetrics = resources.displayMetrics
+        return displayMetrics.widthPixels.div(numberColum)
     }
 
     private fun getDataIntent() {
