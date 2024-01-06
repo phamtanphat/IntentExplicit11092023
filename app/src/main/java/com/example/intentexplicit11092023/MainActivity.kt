@@ -3,8 +3,12 @@ package com.example.intentexplicit11092023
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import kotlin.random.Random
 
@@ -13,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imgRandom: ImageView
     private lateinit var imgUserSelect: ImageView
     private lateinit var tvScore: TextView
+    private var drawableRandom: Int = 0
     private val arrAnimals by lazy {
         resources.getStringArray(R.array.array_animals)
     }
@@ -35,14 +40,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK && result.data != null) {
+            val drawableUserSelect = result.data?.getIntExtra("drawable", -1) ?: return@registerForActivityResult
+            if (drawableUserSelect != -1) {
+                imgUserSelect.setImageResource(drawableUserSelect)
+            }
 
+            if (drawableUserSelect == drawableRandom) {
+                Toast.makeText(this@MainActivity, "Chinh xac", Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    makeImageRandom(imgRandom, arrAnimals)
+                }, 1000)
+            } else {
+                Toast.makeText(this@MainActivity, "Sai roi", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun makeImageRandom(imageView: ImageView, arrayName: Array<String>) {
         val index = Random.nextInt(arrayName.size)
         val nameDrawable = arrayName[index]
-        val imageResource = DrawableUtil.getImageResource(nameDrawable, this)
-        imageView.setImageResource(imageResource)
+        drawableRandom = DrawableUtil.getImageResource(nameDrawable, this)
+        imageView.setImageResource(drawableRandom)
     }
 
     private fun initView() {

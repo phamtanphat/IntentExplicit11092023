@@ -1,5 +1,7 @@
 package com.example.intentexplicit11092023
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +24,7 @@ class ListAnimalActivity : AppCompatActivity() {
         if (intent != null) {
             val arrAnimals = intent.getStringArrayExtra("array_animals")
             if (arrAnimals.isNullOrEmpty()) return
+            arrAnimals.shuffle()
             val colum = 3
             val row = 6
             var index = -1
@@ -35,8 +38,17 @@ class ListAnimalActivity : AppCompatActivity() {
                     drawable = DrawableUtil.getImageResource(arrAnimals[index], this)
                     val imageView = ImageView(this).apply {
                         setImageResource(drawable)
+                        tag = drawable
                         layoutParams = LayoutParams(imageSize, imageSize)
                     }
+
+                    imageView.setOnClickListener {
+                        val intent = Intent(this@ListAnimalActivity, MainActivity::class.java)
+                        intent.putExtra("drawable", it.tag.toString().toInt())
+                        setResult(Activity.RESULT_OK, intent)
+                        finish()
+                    }
+
                     tableRow.addView(imageView)
                 }
                 tableLayout.addView(tableRow)
